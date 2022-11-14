@@ -1,6 +1,6 @@
 # Transferencia FTP
 ### Requerimientos
-Instalar el módulo (basic-ftp)[https://www.npmjs.com/package/basic-ftp]:
+Instalar el módulo [basic-ftp](https://www.npmjs.com/package/basic-ftp):
 ```sh
 npm install basic-ftp --save-dev
 ```
@@ -25,4 +25,9 @@ Agregar el comando para realizar la ejecución del código via npm dentro de nue
   "scripts": {
     "transfer": "node ./transfer.js"
   },
+```
+
+Ejecutar la transferencia por medio de consola:
+```sh
+npm run transfer
 ```
