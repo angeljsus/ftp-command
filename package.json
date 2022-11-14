@@ -1,0 +1,15 @@
+{
+  "name": "ftp-transfer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "transfer": "node ./transfer.js"
+  },
+  "keywords": [],
+  "author": "Ángel Aguilar",
+  "license": "ISC",
+  "devDependencies": {
+    "basic-ftp": "^5.0.2"
+  }
+}
