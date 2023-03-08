@@ -12,7 +12,8 @@ All geographical data can be reduced to three basic topological concepts -- the 
 A *map* is a set of *points*, *lines*, and *areas* that are defined both by their location in space with reference to a coordinate system and by their non-spatial attributes (Fig. 2.1 (a-c)). A map is usually represented in two dimensions but there is no reason to exclude higher dimensions except through the difficulty of portraying them on a flat piece of paper.
 The *map legend* is the key linking the non-spatial attributes to the spatial entities. Non-spatial attributes may be indicated visually by colours, symbols or shading, the meaning of which is defined in the legend. For geographical information systems, non-spatial attributes need to be coded in a form in which they can be used for data analysis. A *region* is a set of pixels, areas or polygons that are described by a single legend unit. A region may be made up of several discrete occurrences (Fig. 2.1.(d)), which may be uniform, or which may contain polygons belonging to regions of another kind (Fig. 2.1(e)). Although the eye can easily distinguish the topological relationships between the regions in Fig. 2.1(d-f), these relationships must be explicitly built into any digital representation.
 
-![Fig. 2.1](https://tespoll.000webhostapp.com/book/Figura_2.1.PNG)
+![Fig. 2.1](/book/Figura_2.1.PNG)
+
 
 
 **Fig. 2.1** A map is a set of points, lines, and areas defined both by position with reference to a coordinate system and by their non-spatial attributes (a, b, c). A region is a set of loci on a map that belong to the same class or have the same attribute (d, e, f). (d) is a disjoint region, (e) a perforated region; (f) shows three different regions.
@@ -47,7 +48,7 @@ Indexed files permit rapid access to databases. Unfortunately, they have inheren
 
 **Table 2.1**  *Indexed files*
 
-![Table. 2.1](https://tespoll.000webhostapp.com/book/Tabla_2.1.PNG)
+![Table. 2.1](/book/Tabla_2.1.PNG)
 
 
 **Database structures**
@@ -56,7 +57,7 @@ A database consists of data in many files. In order to be able to access data fr
 When the data have a parent/child or one-to-many relation, such as soil series within a soil family, or pixels within a region, hierarchical methods provide quick and convenient means of data access. Hierarchical systems of data organization are well-known, of course, to environmental science, being the methods used for plant and animal taxonomies, soil classification, and so on. Hierarchical systems assume that each part of the hierarchy can be reached using a key (a set of discriminating criteria) that fully describes the data structure. Hierarchical systems assume that there is a good correlation between the key attributes (discriminating criteria) and the associated attributes that the items may possess. Hierarchical systems have the advantage that they are easy to understand, and they are easy to update and expand. Data access via the keys is easy for key attributes, but unfortunately is very difficult for associated attributes. Consequently, hierarchical systems are good for data retrieval if the structure of all possible queries can be known beforehand. This is commonly the case with bibliographic, bank or airline retrieval systems. For environmental data, however, the exploratory nature of many retrieval requests cannot be accommodated by the rigid hierarchy and the critical user may reject the system as impossibly inflexible. For example, Beyer (1984) reports that the Royal Botanical Gardens in Kew initially set up a hierarchical database based on the rules of plant taxonomy for their herbarium collection of more than a million items. This seemed sensible until the Director wished to make a trip to Mexico to gather new material for the herbarium and asked the database which plants that Kew already had from that land. Unfortunately for the suppliers and the users of the database, the director received no answer because the attribute "place of collection" is not part of the plant taxonomy key!
 Further disadvantages of hierarchical database structures are that large index files have to be maintained, and certain attribute values may have to be repeated many times, leading to data redundancy. which increases storage and access costs (Fig. 2.2).
 
-![Figura_2.2](https://tespoll.000webhostapp.com/book/Figura_2.2.PNG)
+![Figura_2.2](/book/Figura_2.2.PNG)
 
 **Fig. 2.2** Hierarchical database structure commonly used in soil science.
 
@@ -65,7 +66,7 @@ In hierarchical systems, travel within the database is restricted to the paths u
 Consider Fig. 2.3(a), which consists of a simple map of two polygons. Figure. 2.3(a) shows the map as it appears to the human brain; that is the two polygons are defined by a set of lines, one of which is common to both. The lines, in turn, are defined by coordinate pairs, with each coordinate pair common to two lines. Clearly, a hierarchical data structure for the map would result in a clumsy representation involving much redundancy (Fig. 2.3(b, e)). Each coordinate pair would have to repeated twice and coordinates 3 and 4 would have to be repeated four times because line c has to be repeated twice. The structure is not only wasteful of space; it is clumsy, for if an operation were made to give polygons I and II the same name there is no easy way to suppress the display of line c. which would become unnecessary. These problems are avoided by the compact network structure shown in Fig. 2.3(c), in which each line and each coordinate need appear only once. With this structure it is a simple matter to suppress the printing of line e whenever it is referenced by polygons having the same name, thus making map generalization easier.
 Very often in graphics, network structures are used that have a ring pointer structure. Ring pointer structures (Fig. 2.3(d)) are very useful ways of navigating around complex topological structures. Network systems are very useful when the relations or linkages can be specified beforehand. They avoid data redundancy and make good use of available data. The disadvantages are that the database is enlarged by the overhead of the pointers, which in complex systems can become quite a substantial part of the database. These pointers must be updated/maintained every time a change is made to the database and the building and maintenance of pointer structures can be a considerable overhead for the database system.
 
-![Figura_2.3](https://tespoll.000webhostapp.com/book/Figura_2.3.PNG)
+![Figura_2.3](/book/Figura_2.3.PNG)
 
 **Fig. 2.3** Network data structures for simple polygons. (a). The map M. (b) The two component polygons I and II. (c ) A network structure linking all polygons, lines, and points. (d) A ring pointer structure for M. (e) A hierarchical data structure for M.
 
@@ -74,14 +75,14 @@ The relational database structure in its simplest form stores no pointers and ha
 Data are extracted from a relational database through a procedure in which the user defines the relation that is appropriate for the query. This relation is not necessarily already present in the existing files. So, the controlling program uses the methods of relational algebra to construct the new tables.
 Relational databases have the great advantage that their structure is very flexible and can meet the demands of all queries that can be formulated using the rules of Boolean logic and of mathematical operations. They allow different kinds of data to be searched, combined, and compared. Addition or removal of data is easy too, because this just involves adding or removing a tuple. The disadvantage of relational databases is that many of the operations involve sequential searches through the files to find the right data to satisfy the specified relations. This can involve a considerable amount of time with large databases, even on fast computers. Consequently, commercial relational database systems have to be very skilfully designed in order to support the search capabilities with reasonable speed, which is why they are so expensive. They are just beginning to be applied to geographical information systems (Abel 1983; Lorie and Meier 1984; van Roessel and Fosnight 1984).
 
-![Figura_2.4](https://tespoll.000webhostapp.com/book/Figura_2.4.PNG)
+![Figura_2.4](/book/Figura_2.4.PNG)
 
 **Fig. 2.4** A relational data structure for the map M.
 
 *Record structures*
 In all kinds of database structures, the data are written in the form of records. The simplest kind of record is a one-dimensional array of fixed length, divided into a number of equal partitions (Fig. 2.5(a)). This record is ideal when all items have the same number of attributes, for example when a number of soil profiles have been sampled and analysed for a standard range of cations. Fixed length records are inconvenient, however, when the attributes are of variable length, and when the set of attributes measured is not common to all items. For example, not all soil profiles have the same number of horizons, and not all polygon boundaries have the same number of coordinates. In these situations, variable length records are used. Each record has a "header", an extra attribute that contains information about the type of information in the sub-record and the amount of space it takes up (Fig. 2.5(b).
 
-![Figura_2.5](https://tespoll.000webhostapp.com/book/Figura_2.5.PNG)
+![Figura_2.5](/book/Figura_2.5.PNG)
 
 **Fig. 2.5** Two kinds of sequential list: (a) fixed length records; (b) variable length records including a "header" H to record data about the record itself.
 
@@ -97,7 +98,7 @@ Raster representation -- set of cells located by coordinates; each cell is indep
 Vector representation -- three main geographical entities, points, lines and areas: points are similar to cells, except they do not cover areas; lines and areas are sets of interconnected coordinates that can be linked to given attributes.
 Note that there is no necessary or unique connection between the raster or vector structure of the geographical database and the raster or vector structure of the devices used to display the data, although this is very often the case. For example, most modern interactive computer-aided design and mapping systems work with vector-structured databases but use colour raster displays and vector plotters (see Chapter 4).
 
-![Figura_2.6](https://tespoll.000webhostapp.com/book/Figura_2.6.PNG)
+![Figura_2.6](/book/Figura_2.6.PNG)
 
 **Fig. 2.6** An image of a chair in (a) raster or grid-cell and (b) vector format.
 
@@ -105,7 +106,7 @@ Note that there is no necessary or unique connection between the raster or vecto
 The simplest raster data structures consist of an array of grid cells (sometimes termed pixels or picture elements). Each grid cell is referenced by a row and column number, and it contains a number representing the type or value of the attribute being mapped. In raster structures a point is represented by a single grid cell; a line by a number of neighbouring cells strung out in a given direction and an area by an agglomeration of neighbouring cells. This type of data structure is easy to handle in the computer, particularly with programming languages such as FORTRAN, because of the ease with which arrays of rows and columns can be stored, manipulated, and displayed. This data structure also means that the two-dimensional surface upon which the geographical data are represented is not continuous, but quantized, which can have an important effect on the estimation of lengths and areas when grid cell sizes are large with respect to the features being represented. For example, Fig. 2.7(a) shows that the (Euclidean) distance between a and c is 5 units, while on Fig. 2.7(b), the distance between a and c could be 7 or 4 units depending on whether one counts cell edges or whole cells that must be traversed. The area of Fig. 2.7(a) is 6 units; the area of Fig. 2.7(b) is 7 units. We shall return to this problem of errors in Chapter 6. Because of the discrepancies that can arise in this way through the loss of precision associated with the cell size, many fields such as digital image processing often assume that the quantized surface can be treated as continuous, so that mathematical functions having derivatives that exist can be used (e.g. Castleman 1979).
 Raster representation assumes that the geographical space can be treated as though it were a flat Cartesian surface. Each pixel or grid cell is then by implication associated with a square parcel of land. The resolution, or scale of the raster data is then the relation between the cell size in the database and the size of the cell on the ground.
 
-![Figura_2.7](https://tespoll.000webhostapp.com/book/Figura_2.7.PNG)
+![Figura_2.7](/book/Figura_2.7.PNG)
 
 **Fig. 2.7** Raster coding can affect estimates of distance and area because of the quantizing effect of the cells.
 
@@ -113,12 +114,12 @@ Raster representation assumes that the geographical space can be treated as thou
 Because each cell in a two-dimensional array can only hold one number, different geographical attributes must be represented by separate sets of Cartesian arrays, known as "overlays". The overlay idea for separating data is not restricted to computer cartography. having been used by cartographers for preparing printed maps and by landscape planners (e.g. McHarg 1969) for a very long time. Figure. 2.8 illustrates the overlay concept in which each separate attribute is described and mapped separately.
 In its simplest form, the overlay concept is realized in raster data structures by stacking two-dimensional arrays. This results in a three-dimensional structure as shown in Fig. 2.9. The overlay concept is essentially equivalent to the "picture function" in digital image processing (Duda and Hart 1973), a "data plane" in remote sensing (Tom et al. 1978) or image-based storage (O'Callaghan and Graetz 1981), and it is fundamental to most raster image processing.
 
-![Figura_2.8](https://tespoll.000webhostapp.com/book/Figura_2.8.PNG)
+![Figura_2.8](/book/Figura_2.8.PNG)
 
 **Fig. 2.8** The "overlay" concept; the real world is portrayed by a series of overlays in each of which one aspect of reality has been recorded (e.g. topography, soil type, roads, rivers, etc.).
 
 
-![Figura_2.9](https://tespoll.000webhostapp.com/book/Figura_2.9.PNG)
+![Figura_2.9](/book/Figura_2.9.PNG)
 
 **Fig. 2.9** Three-dimensional arrays used for coding map overlays in raster database structures.
 
@@ -132,12 +133,12 @@ $$0, 1, 0^2, 3, 0^2, 1, 0, 3, 0, 1, 0^3, 3^2, 2, 3^3, 0^2, 1, 0^5, 3^2, 2^2, 3, 
 where the number of steps (pixels) in each direction is given by the superscripted number. 
 Chain codes provide a very compact way of storing a region representation and they allow certain operations such as estimation of areas and perimeters, or detection of sharp turns and concavities to be carried out easily. On the other hand, overlay operations such as union and intersection are difficult to perform without returning to a full grid representation. Another disadvantage is the redundancy introduced because all boundaries between regions must be stored twice. Freeman (1974) gives further details.
 
-![Figura_2.10](https://tespoll.000webhostapp.com/book/Figura_2.10.PNG)
+![Figura_2.10](/book/Figura_2.10.PNG)
 
 **Fig. 2.10** Three kinds of raster database structure. (a) Each cell is referenced directly. (b) Each overlay is referenced directly. (c) Each mapping unit or "region" is referenced directly.
 
 
-![Figura_2.11](https://tespoll.000webhostapp.com/book/Figura_2.11.PNG)
+![Figura_2.11](/book/Figura_2.11.PNG)
 
 **Fig. 2.11** A simple region on a rasterized map.
 
@@ -164,33 +165,33 @@ $${4}\downarrow \uparrow$$
 So the region in Fig. 2.11 can be coded in 92 bits or 6 x 16-bit words.
 Rosenfeld (1980). Klinger and Dyer (1976) and Hunter and Steiglitz (1979a, b) describe the use of quadtrees for region representation, and applications in soil and resource information systems are described by Abel (1983). Detailed descriptions of the algorithms used for computing perimeters and areas, and for converting from raster to quadtree and other representations have been described in a series of papers by Samet (1980, 1984). Dyer et al. (1980) and Pavlidis (1982). Quadtrees have many interesting advantages over other methods of raster representation. Standard region properties can be easily and efficiently computed. Quadtrees are “variable resolution” arrays in which detail is represented only when available without requiring excessive storage for parts where detail is lacking (Figs. 2.15(a-d), and 2.16.) The largest problems associated with quadtrees appear to be that the tree representation is not translation-invariant-two regions of the same shape and size may have quite different quadtrees, so consequently shape analysis and pattern recognition are not straightforward. Quadtree representation does allow a region to be split up into parts, or to contain holes, however, without difficulty. There is a growing interest in the use of quadtrees in geographical information systems (Samet et al. 1984; Martin 1982; Mark and Lauzon 1984) and it is clearly an elegant technique that has much to offer.
 
-![Figura_2.12](https://tespoll.000webhostapp.com/book/Figura_2.12.PNG)
+![Figura_2.12](/book/Figura_2.12.PNG)
 
 **Fig. 2.12** The simple region described by a medial axis transformation block coding.
 
-![Figura_2.12](https://tespoll.000webhostapp.com/book/Figura_2.12.PNG)
+![Figura_2.12](/book/Figura_2.12.PNG)
 
 **Fig. 2.13** The simple region as a quadtree.
 
-![Figura_2.14](https://tespoll.000webhostapp.com/book/Figura_2.14.PNG)
+![Figura_2.14](/book/Figura_2.14.PNG)
 
 **Fig. 2.14** The quadtree structure of the simple region of Fig 2.11.
 
 *Summary -- raster data structures*
 If each cell represents a potentially different value, then the simple NxN array structure is difficult to improve upon. Its limitations are largely related to the volume of data and size of memory required. When "regions" (ie. areas of uniform value) are present, as is assumed to be the case in many thematic maps, data storage requirements can be considerably reduced by using chain codes, run-length codes, block codes, or quadtrees. Run-length codes appear to be most efficient when the pixel size is large with respect to the area of the regions being displayed and sorted; as resolution improves and pixel numbers per region increase, however, block codes and quadtrees become increasingly attractive. The quadtree representation has the added advantage of variable resolution. The ease of subsequent processing varies with the data structure used.
 
-![Figura_2.15](https://tespoll.000webhostapp.com/book/Figura_2.15.PNG)
+![Figura_2.15](/book/Figura_2.15.PNG)
 
 **Fig. 2.15** The visual appearance of the simple region at each of the four levels of the quadtree hierarchy.
 
 *Vector data structures for geographical entities*
 As we saw earlier in this chapter, the vector representation of an object is an attempt to represent the object as exactly as possible. The coordinate space is assumed to be continuous, not quantized as with the raster space, allowing all positions, lengths, and dimensions to be defined precisely. In fact, this is not exactly possible because of the limitations of the length of a computer word on the exact representation of a coordinate and because all vector display devices have a basic step size, albeit very much smaller than the resolution of most raster devices. Besides the assumption of mathematically exact coordinates, vector methods of data storage use implicit relations that allow complex data to be stored in a minimum of space. There is no single, preferred method, however. This section explains a range of vector structures used in geographical information systems for the storage of points, lines, and areas.
 
-![Figura_2.16](https://tespoll.000webhostapp.com/book/Figura_2.16.PNG)
+![Figura_2.16](/book/Figura_2.16.PNG)
 
 **Fig. 2.16** A region divided by a quadtree structure. The area within the ellipse has detail shown to six levels of branching: the rest four.
 
-![Figura_2.17](https://tespoll.000webhostapp.com/book/Figura_2.17.PNG)
+![Figura_2.17](/book/Figura_2.17.PNG)
 
 **Fig. 2.17** Vector data structure of simple "point" entities.
 
@@ -202,7 +203,7 @@ An "arc", a "chain" or a "string" is a set of n XY coordinate pairs describing a
 As with "points" and simple lines, chains can be stored with data records indicating the type of display line symbol to be used.
 Networks: simple lines and chains carry no inherent spatial information about connectivity such as might be required for drainage network analysis or for road and transport sites. To achieve a line network that can be traced by the computer from line to line it is necessary to build "pointers" into the data structure. The pointer structure is often built up with the help of nodes. Figure 2.18 illustrates the sort of data structure that would be necessary to establish connectivity between all branches of a stream network. Besides carrying pointers to the chains, the nodes would probably also carry data records indicating the angle at which each chain joins the node, thereby fully defining the topology of the network. This simple linkage structure incorporates some data redundancy because coordinates at each node are recorded a total of (nx chains + 1) times, where n is the number of chains joining a node.
 
-![Figura_2.18](https://tespoll.000webhostapp.com/book/Figura_2.18.PNG)
+![Figura_2.18](/book/Figura_2.18.PNG)
 
 **Fig. 2.18** Vector data structure of line networks using nodes to carry the connectivity information.
 
@@ -219,11 +220,11 @@ The simplest way to represent a polygon is an extension of the simple chain, i.e
 
 The simple polygon structure can be extended such that each polygon is represented by a number of chains, but this does not avoid the basic problems.
 
-![Figura_2.19](https://tespoll.000webhostapp.com/book/Figura_2.19.PNG)
+![Figura_2.19](/book/Figura_2.19.PNG)
 
 **Fig. 2.19** Simple polygon structures have the disadvantage that boundary lines between two polygons have to be digitized and stored twice. This can lead to topological errors known as "slivers" and "gaps".
 
-![Figura_2.20](https://tespoll.000webhostapp.com/book/Figura_2.20.PNG)
+![Figura_2.20](/book/Figura_2.20.PNG)
 
 **Fig. 2.20** Topological errors in the boundary of a simple polygon. Incomplete linkages ("dead ends") and topologically inadmissible loops ("weird polygons") must be removed from the data.
 
@@ -231,7 +232,7 @@ The simple polygon structure can be extended such that each polygon is represent
 All coordinate pairs are numbered sequentially and are referenced by a dictionary that records which points are associated with each polygon (Fig. 2.21(a)). This system is used by the Harvard Laboratory for Computer Graphics CALFORM program.
 The point dictionary database has the advantage that boundaries between adjacent polygons are unique, but the problem of neighbourhood functions still exists. Also, the structure does not easily allow boundaries between adjacent polygons to be suppressed or dissolved if a renumbering or reclassification should result in them both being allocated to the same class. The problem of island polygons still exists, as do the problems of checking for weird polygons and dead ends. As with simple polygons, polygons can be used with chain dictionaries (Fig. 2.21(b)). An advantage of using chain dictionaries is that over-defined chains (resulting from stream digitizing) can be reduced in size by weeding algorithms (see Chapter 4) without having to modify the dictionary.
 
-![Figura_2.21](https://tespoll.000webhostapp.com/book/Figura_2.21.PNG)
+![Figura_2.21](/book/Figura_2.21.PNG)
 
 **Fig. 2.21 (a)** Polygon data structure in which all coordinates of a polygon are referenced directly from the polygon record. (b) The same, but all chains (arcs or boundary lines) are referenced directly from the polygon record.
 
@@ -241,13 +242,13 @@ Both methods result in an increase in the amount of data that needs to be stored
 One of the first attempts to build explicit topological relationships into a geographical data structure is the Dual Independent Map Encoding (DIME) system of the US Bureau of the Census. The basic element of the DIME data file is a simple line segment defined by two end points: complex lines are represented by a series of segments. The segment has two pointers to the nodes, and codes for the polygon on each side of the segment. Because nodes do not point back to segments, or segments to adjacent segments, laborious searches are needed to assemble the outlines of polygons. Moreover, the simple segment structure makes the handling of complex lines very cumbersome because of the large data redundancy.
 A simple, effective approach has been developed at the Netherlands Soil Survey Institute, Wageningen for distributing polygonal data sets in such a way that they can be processed by a small computer (van Kuilenburg 1981). The polygon map is stored as a segment or chain file in which each chain is stored as a list of XY coordinate pairs and two pointers that refer to the adjacent map areas (Fig. 2.22). The names of the polygons are stored in a separate table that also includes the same pointers. The data structure is specially designed for producing simple derivative maps from the basic polygon network. When a derived map is needed, the polygon names in the table are recoded. The plotter subroutines only allow a chain to be plotted or used for area calculations if its pointers reference different polygon names, thereby leading to a simplification of the original polygon network. Areas of polygons that contain islands are computed using a "point-in-polygon" search algorithm, to be described in more detail below. This data structure does not allow any more sophisticated neighbourhood searches to be made, nor does it allow error checks for weird polygons or dead ends, so it can best be derived from a fully topologically structured database.
 
-![Figura_2.22](https://tespoll.000webhostapp.com/book/Figura_2.22.PNG)
+![Figura_2.22](/book/Figura_2.22.PNG)
 
 **Fig. 2.22** Polygon data structure in which all polygons are referenced from the chains (arcs or boundary lines).
 
 In order to establish a proper topological polygon data structure in which island polygons, area calculations, neighbourhood operations such as recoding and merging, and error checks for weird polygons and dead ends are all possible, the data structure shown schematically in Fig. 2.23 must be built up. Many experimental and production mapping systems have been designed in which the operator has been required to build the topological links into the database while digitizing the line pattern. These systems often require the operator to digitize all polygons in a strict clockwise or counter-clockwise order, to associate each line with the polygon on both right and left of the line and to digitize virtual lines to link "islands" with their surrounding "lakes". The developers of these systems have clearly never spent long hours at a digitizing table nor have they given much thought to how error-prone such a system may be. Cook (1978) documents some of the topological problems arising from the virtual line, such as with the calculation of areas and perimeters. Moreover, when highly detailed polygon maps have been produced by vectorizing a scanned raster image (see Chapter 4) it is clearly absurd that an operator should have to go over every part of the map by hand just to establish the topology. As White (1983) has complained, an elementary knowledge of topology can eliminate all the problems stated so far, but it must be fair to add that this has to be accompanied by an increase in the complexity of the software and of the resulting database.
 
-![Figura_2.23](https://tespoll.000webhostapp.com/book/Figura_2.23.PNG)
+![Figura_2.23](/book/Figura_2.23.PNG)
 
 **Fig. 2.23** A fuil topological network for polygons.
 
@@ -277,11 +278,11 @@ Once the outer, or envelope, polygon has been built, each individual polygon can
 The search proceeds to the next polygon in the same network at the same level in the hierarchy, and so on until all individual polygons have been built up. When the last polygon in the net has been traced, its ring pointer (e) is set pointing back to the envelope polygon. Note that this ensures that all bounding lines are associated with two polygons. 
 The same procedure is followed for all “islands” and "unconnected sub-continents”. Once all bounding chains have been linked into polygons, the "islands" and the "sub-continents" must be arranged in the proper topological hierarchy. This can be done by first sorting them into increasing area, and then testing to see if an "island" falls within an "envelope" of the next largest size. A quick test can be made by comparing the extents of the two envelope polygons. Once a match has been found, the problem is to locate the exact polygon in which the island lies. The matching of extents is then repeated for each component polygon in the "continent". Once a match has been found, a "point-in- polygon" routine is used to see if the island is totally within the polygon (see Figs. 2.24 and 2.25). If an overlap is found, it signals an error in the database or the intersection procedures (Stage 1) and indicates that the operator must take remedial action. If there is no overlap, then a pointer is written from the network polygon to the envelope polygon of the enclosed island. If no overlap and no matching is found, it means that the two polygon networks are independent of each other. Note that the ring pointer structure of envelope polygons-network polygons-island envelope polygons-island network polygons allows an infinite amount of nesting. Moreover, the nesting only needs to be worked out once; thereafter the network can be traversed easily by following the pointers.
 
-![Figura_2.24](https://tespoll.000webhostapp.com/book/Figura_2.24.PNG)
+![Figura_2.24](/book/Figura_2.24.PNG)
 
 **Fig. 2.24** Solving the point-in-polygon problem. Point a is easily excluded because it is outside the extents (XY-min, XY-max). Points b and c need further processing.
 
-![Figura_2.25](https://tespoll.000webhostapp.com/book/Figura_2.25.PNG)
+![Figura_2.25](/book/Figura_2.25.PNG)
 
 **Fig. 2.25** If a horizontal line drawn from a point, d, makes an odd number of intersections with the polygon boundary then the point is "in". For polygons, the whole of the area of the small polygon must be scanned for enclosure.
 *Stage 4.* Computing polygon areas. The next stage involves computing the area of the individual polygons by the trapezoidal rule. Because in geographical data, polygons may have many hundreds of coordinates in the bounding chains and many island polygons (imagine the geological map of an area with lakes and drumlins), it is usually more efficient to compute areas once, subtracting the areas of enclosed islands as necessary, and then to store these areas as an associated attribute.
@@ -302,7 +303,7 @@ Haralick (1980) lists an alternative procedure for finding the polygon containin
 *Layers.* When discussing raster database structures, it was noted how each attribute could be mapped as a separate overlay, giving rise to a three-dimensional data matrix. In principle, the number of layers is unlimited, restrictions being imposed only by storage space. The overlay concept is so natural to cartographers and designers that it is also frequently built into vector systems, particularly those that are used for computeraided design (CAD). Unlike raster systems, where each new attribute in the database means a new overlay, the overlay/layer system used in CAD vector systems is used to separate major classes of spatial entities, mainly for purposes of drawing and display.
 The layer information is usually added to the graphic data by coding a bit sequence in a header that is attached to the data record of each graphic entity. Depending on the system, the bit sequences may allow 64 or 256 different layers for display; alternatively, the headers may be even more flexibly coded in terms of major non-graphic attributes that the user can define. such as railways, major roads, streams or soil boundaries (Fig. 2.26). The layer system makes it very easy to count, flag, and selectively display graphic entities. The landscape information system developed at The Netherlands Soil Survey Institute (Burrough 1980) uses Boolean selection rules to identify chosen graphic entities that can be isolated and displayed separately simply by changing the layer address.
 
-![Figura_2.26](https://tespoll.000webhostapp.com/book/Figura_2.26.PNG)
+![Figura_2.26](/book/Figura_2.26.PNG)
 
 **Fig. 2.26** Schematic view of the layer structures used in many vector mapping systems to separate different map themes. Each layer can be used to carry a separate theme. Different maps can be made by viewing layers singly, or in combination. Numbers refer to the "position" of the layers.
 
@@ -310,7 +311,7 @@ The layer information is usually added to the graphic data by coding a bit seque
 These labels, sometimes called master index pointers, are often held in a sequential list that is the key to accessing the rest of the database (Fig. 2.27(a)). This list has two major problems associated with it. First, it is rarely fully consecutive -- during editing, gaps may appear, or it may be increased in length, which means that non-pointer searches almost invariably have to be of a sequential nature. Second, the search times increase sharply with the length of the table, which often means that map processing times increase non-linearly with the size of the database. This is not least the result of the master index table being distributed over a disk. Consequently, procedures that work well on small, demonstration databases may become very slow on production-size maps.
 There are two fundamentally different ways to tackle the problem of an increasingly large database. One is to use "brute-force" computing methods to scan the pointer arrays quickly, or to concentrate the master index array onto a small, contiguous area of disk or core storage. While this approach can undoubtedly effect some improvements, it is at best a palliative and does little to resolve the underlying problems. Another approach involves structuring the master index pointers not only according to entity type, but also to spatial location (Fig. 2.27(b)). The database is considered to consist of an (in theory) infinite set of tiles reaching in both directions. Each tile (or page as it is sometimes called) can reference a certain amount of information; extra details can be accommodated by dividing each main tile into sub-tiles, in a manner similar to that used in quadtree structures (see Cook 1978). Tiling introduces an extra complication in that all chains must automatically be terminated and begun at tile boundaries, and topological pointers must not only reference other entities, but other tiles as well. The costs are thus a larger database, but one in which searching times can be kept very low by virtue of the positional hierarchy.
 
-![Figura_2.27](https://tespoll.000webhostapp.com/book/Figura_2.27.PNG)
+![Figura_2.27](/book/Figura_2.27.PNG)
 
 **Fig. 2.27** (a) Simple sequential data structure used for vector graphics. (b) Better design that splits database up into tiles (separate areas) and geographical entities.
 In principle, tiling allows limitless maps to be created and stored, as only data from a few tiles need be referenced at any one time, the rest being stored on disk. In practice, the sheer volume of data will exceed the financially allowable disk space (it does not take many map sheets of soil polygons to fill 150 Mbyte) so that for countrywide mapping great reliance must be placed on magnetic tape for storing much of the total database until it is required.
@@ -322,7 +323,7 @@ The quality of the graphics was not the only technological limitation. Most earl
 The gigantic storage volumes required for raster formats can also be greatly reduced by means of some of the compact raster data structures mentioned earlier in this chapter, such as run length codes or quadtrees. Conversely, the inclusion of a large amount of topological information in a vector network structure, or the redundancy in a relational data structure can seriously increase the size of vector-structured databases.
 The problem of raster or vector disappears once it is realized that both are valid methods for representing spatial data, and that both structures are interconvertible. Conversion from vector to raster is the simplest and there are many well-known algorithms (e.g. Pavlidis 1982). Vector to raster conversions are now performed automatically in many display screens by inbuilt microprocessors. The reverse operation, raster to vector, is also well understood (Pavlidis lists four algorithms for thinning bands of pixels to lines), but it is a much more complex operation that is complicated by the need to reduce the numbers of coordinates in the resulting lines by a process known as weeding.
 
-![Figura_2.28](https://tespoll.000webhostapp.com/book/Figura_2.28.PNG)
+![Figura_2.28](/book/Figura_2.28.PNG)
 
 **Fig. 2.28** A simple map that can be represented in vector (arc-polygon) or raster form.
 
@@ -334,7 +335,7 @@ In raster notation, the space described by Pl can be defined in terms of sets of
 Figure 2.29 shows how the polygon Pl can be represented fully in either raster or vector form. At the highest level, the polygon is described by a simple set of relations listing the entity name, the entity type, and the entity data. Whereas the name and type are simple records, the entity data is a set of relations including attributes, spatial relations, extents, and spatial description. Note that the entity data are identical in all respects for raster and vector notation, except for the set of relations referenced in the spatial description record.
 In the vector notation, the boundary entity type is set up in a similar way to that of the polygon. The entity data relation contains attributes of the boundary, a list of the arcs making up that boundary and a list of the boundary entities of the holes within that boundary. The data structure for the arcs includes attributes indicating the polygons to their left and right, the boundary in which they belong, and a list of their coordinates.
 
-![Figura_2.29](https://tespoll.000webhostapp.com/book/Figura_2.29.PNG)
+![Figura_2.29](/book/Figura_2.29.PNG)
 
 **Fig. 2.29** A possible relational database structure of Fig 2.28 for combined vector and raster representation.
 
@@ -343,7 +344,7 @@ In order to represent polygon Pl in raster notation, it is only necessary to cha
 Clearly, the main data structure of polygon Pl is unchanged by the way in which the space it occupies is described. Both the raster and vector representations of that space are equally valid data structures. If routines are available for the speedy conversion from one spatial structure to another, data retrieval and analysis routines can be programmed to choose the structure that is most efficient for solving a given problem without the user having to intervene (Table 22). In some circumstances it may be advantageous to have spatial data present in both raster and vector form, particularly when line or boundary data need to be represented by connected networks or drawn in a particular style and the spaces between must be filled with a print raster of a given symbolism or colour.
 Bickmore (1984) describes an experimental coloured map of ecological zones in the Dolgellau area of North Wales made for the UK Nature Conservancy Council by the IGN in Paris that was made using combined raster and vector techniques. While this experiment referred only to making a map. we may expect that the use of vector and raster spatial data structures as complementary components of a geographical information system will increase in importance as demands for high resolution, compact data structures and the power of flexible data analyses increase.
 
-![Table_2.2](https://tespoll.000webhostapp.com/book/Tabla_2.2.PNG)
+![Table_2.2](/book/Tabla_2.2.PNG)
 
 **Table 2.2** Comparison of vector and raster methods
 
